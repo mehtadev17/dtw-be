@@ -20,7 +20,7 @@ case "$1" in
   test_ci)
     pip install safety
     safety check -r requirements.txt --full-report
-    pip install pylint pylint_django
+    pip install pylint pylint_django 
     pylint dtw api
     python /app/manage.py test --exclude-tag=integration
     ;;
