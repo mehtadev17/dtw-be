@@ -3,10 +3,6 @@
 set -e
 
 case "$1" in
-  version|--version|-v)
-    cat /VERSION
-    exit 0
-    ;;
   help|--help|-h)
     echo "No help for you"
     exit 1

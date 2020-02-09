@@ -1,3 +1,3 @@
-#!/bin/sh
+#!/bin/bash
 source ./bin/.bin-conf
-docker-compose run --rm -v $(pwd)/dtw:/app --workdir /app -p 8080:8080 backend sh
+docker-compose run --rm -v $(pwd)/dtw:/app --workdir /app -p 8080:8080 backend $1
