@@ -1,3 +1,5 @@
 #!/bin/bash
+
+# Run docker container without locally mounted code. Takes 1 argument to run specific entrypoint from list
 source ./bin/.bin-conf
-docker-compose run --rm -e DEBUG=False -p 8080:8080 backend devmode
+docker-compose run --rm -e DEBUG=False -p 8080:8080 backend $1
