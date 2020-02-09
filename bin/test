@@ -1,0 +1,4 @@
+#!/bin/sh
+source ./bin/.bin-conf
+#docker run --rm $DTW_BE_IMAGE test
+docker-compose run --rm -v $(pwd)/dtw:/app --workdir /app -p 8080:8080 backend test

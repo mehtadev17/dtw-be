@@ -1,0 +1,10 @@
+#!/bin/sh
+export MSYS_NO_PATHCONV=1 #for windows on git bash
+
+if ! [ -f ".version" ]; then
+  echo "No version built.  Run ./bin/build and try again"
+  exit 1
+fi
+
+set -x
+export DTW_BE_IMAGE=$(cat .version)

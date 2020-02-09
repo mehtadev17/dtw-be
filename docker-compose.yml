@@ -1,0 +1,39 @@
+version: "3.7"
+
+services:
+  postgres:
+    image: postgres:11.3-alpine
+    environment:
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    ports:
+      - 5432:5432
+
+  elasticsearch:
+    image: elasticsearch:6.8.6
+    expose:
+      - 9200
+    ports:
+      - "9200:9200"
+
+  kibana:
+    image: kibana:6.4.2
+    depends_on:
+      - elasticsearch
+    ports:
+      - "5601:5601"
+
+  backend:
+    image: ${DTW_BE_IMAGE}
+    build:
+      context: ./
+    env_file:
+      - .env
+    depends_on:
+      - postgres
+      - elasticsearch
+      - kibana
+
+volumes:
+  postgres_data:

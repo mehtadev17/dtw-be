@@ -1,0 +1,192 @@
+{
+  "name": "POC_Prototype_Workflow",
+  "type": "BATCH",
+  "description" : "Filter and Aggregate Demo Workflow",
+  "version": 1,
+  "connections": {
+    "graph": [{
+        "src": [
+          0
+        ],
+        "dest": [
+          3
+        ]
+      },
+      {
+        "src": [
+          1
+        ],
+        "dest": [
+          2
+        ]
+      },
+      {
+        "src": [
+          2
+        ],
+        "dest": [
+          3
+        ]
+      },
+      {
+        "src": [
+          3
+        ],
+        "dest": [
+          4
+        ]
+      },
+      {
+        "src": [
+          4
+        ],
+        "dest": [
+          5
+        ]
+      },
+      {
+        "src": [
+          5
+        ],
+        "dest": [
+          6
+        ]
+      }
+    ]
+  },
+  "steps": [
+    {
+      "step_number": 0  ,
+      "name": "FileReader1",
+      "component": "FileReader",
+      "parameters": [{
+        "file_path": "s3://dtw-be-dev/postd_trxn.dat",
+        "file_type": "csv"
+      }],
+      "schemas": [{
+        "type": "OUTPUT",
+        "schema": 4,
+        "name": "fileRead1"
+      }]
+    },
+    {
+      "step_number": 1,
+      "name": "FileReader2",
+      "component": "FileReader",
+      "parameters": [{
+        "file_path": "s3://dtw-be-dev/cust.dat",
+        "file_type": "csv"
+      }],
+      "schemas": [{
+        "type": "OUTPUT",
+        "schema": 5,
+        "name": "fileRead2"
+      }]
+    },
+    {
+        "step_number": 2,
+        "name": "Reformat_Read1",
+        "component": "Reformat",
+        "parameters": [{
+          "operations_list": [
+            {
+              "func": "toString(input_table.sor_id)",
+              "result_column": "output_table.sor_id_str"
+            }
+          ]
+        }],
+        "schemas": [
+        {
+          "type": "INPUT",
+          "schema": 5,
+          "name": "fileRead2"
+        },{
+          "type": "OUTPUT",
+          "schema": 8,
+          "name": "reformat_file"
+        }]
+    },
+    {
+      "step_number": 3,
+      "name": "Join_Data",
+      "component": "Join",
+      "parameters": [{
+        "type": "Inner",
+        "field1": "fileRead1.cust_id",
+        "field2": "reformat_file.customer_id"
+      }],
+      "schemas": [{
+        "type": "INPUT",
+        "schema": 4,
+        "name": "fileRead1"
+      }, {
+        "type": "INPUT",
+        "schema": 8,
+        "name": "reformat_file"
+      }, {
+        "type": "OUTPUT",
+        "schema": 6,
+        "name": "join_Table"
+      }]
+    },
+    {
+      "step_number": 4,
+      "name": "Filter_Data",
+      "component": "Filter",
+      "parameters": [{
+        "filter": "fileRead1.tsys_trxn_cd >=200;"
+      }],
+      "schemas": [{
+        "type": "INPUT",
+        "schema": 6,
+        "name": "join_Table"
+      },{
+        "type": "OUTPUT",
+        "schema": 6,
+        "name": "filtered_Table"
+      }]
+    },
+    {
+      "step_number": 5,
+      "name": "Max_Sum_Aggregate",
+      "component": "Aggregate",
+      "parameters": [{
+        "group_by": [ "agg_Table.mrch_nm" ] ,
+        "operations_list": [
+          {
+            "type": "max",
+            "input_field": "filtered_Table.trxn_amt",
+            "result_field": "agg_Table.max_trxn"
+          },
+          {
+            "type": "sum",
+            "input_field": "filtered_Table.trxn_amt",
+            "result_field": "agg_Table.sum_trxn"
+          }
+        ]
+      }],
+      "schemas": [{
+        "type": "INPUT",
+        "schema": 6,
+        "name": "filtered_Table"
+      },{
+        "type": "OUTPUT",
+        "schema": 7,
+        "name": "agg_Table"
+      }]
+    },
+    {
+      "step_number": 6,
+      "name": "FileWrite5",
+      "component": "FileWriter",
+      "parameters": [{
+        "file_path": "s3://dtw-be-dev/test-output"
+      }],
+      "schemas": [{
+        "type": "INPUT",
+        "schema": 7,
+        "name": "agg_Table"
+      }]
+    }
+  ]
+}

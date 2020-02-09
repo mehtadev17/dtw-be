@@ -1,0 +1,69 @@
+[{
+  "model": "api.component",
+  "pk": 1,
+  "fields": {
+    "name": "FileReader",
+    "description": "File Read",
+    "type": "Source"
+  }
+}, {
+  "model": "api.component",
+  "pk": 2,
+  "fields": {
+    "name": "Reformat",
+    "description": "Reformat",
+    "type": "Transform"
+  }
+}, {
+  "model": "api.component",
+  "pk": 3,
+  "fields": {
+    "name": "Join",
+    "description": "Join",
+    "type": "Transform"
+  }
+}, {
+  "model": "api.component",
+  "pk": 4,
+  "fields": {
+    "name": "Filter",
+    "description": "Filter By Expression",
+    "type": "Transform"
+  }
+}, {
+  "model": "api.component",
+  "pk": 5,
+  "fields": {
+    "name": "FileWriter",
+    "description": "File Write",
+    "type": "Sink"
+  }
+},
+  {
+    "model": "api.component",
+    "pk": 6,
+    "fields": {
+      "name": "Aggregate",
+      "description": "Aggregate",
+      "type": "Transform"
+    }
+  },
+  {
+  "model": "api.component",
+  "pk": 7,
+  "fields": {
+    "name": "SDPReader",
+    "description": "File Write",
+    "type": "Source"
+  }
+}, {
+  "model": "api.component",
+  "pk": 8,
+  "fields": {
+    "name": "SDPWriter",
+    "description": "File Write",
+    "type": "Sink"
+  }
+}
+]
+

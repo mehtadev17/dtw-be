@@ -1,0 +1,350 @@
+[
+  {
+    "model": "api.schema",
+    "pk": 4,
+    "fields": {
+      "name": "trxn_schema_poc",
+      "format": "DELIMITED",
+      "type" : "STRUCTURED",
+      "ebcdic": false,
+      "external_id": 1,
+      "fields": [
+        {
+          "name": "cust_id",
+          "type": "Decimal(20,5)",
+          "array": false,
+          "delimiter": ",",
+          "nullable": false
+        },
+        {
+          "name": "acct_id",
+          "type": "Decimal(22,0)",
+          "array": false,
+          "delimiter": ",",
+          "nullable": false
+        },
+        {
+          "name": "trxn_dt",
+          "type": "Date",
+          "array": false,
+          "delimiter": ",",
+          "date_format":"MM/DD/yy",
+          "nullable": false
+        },
+        {
+          "name": "trxn_postd_dt",
+          "type": "Date",
+          "array": false,
+          "delimiter": ",",
+          "date_format":"MM/DD/yy",
+          "nullable": false
+        },
+        {
+          "name": "trxn_seq_num",
+          "type": "Decimal(20,0)",
+          "array": false,
+          "delimiter": ",",
+          "nullable": false
+        },
+        {
+          "name": "tsys_trxn_cd",
+          "type": "Decimal",
+          "array": false,
+          "delimiter": ",",
+          "nullable": false
+        },
+        {
+          "name": "trxn_amt",
+          "type": "Decimal",
+          "array": false,
+          "delimiter": ",",
+          "nullable": false
+        },
+        {
+          "name": "trnx_desc",
+          "type": "String",
+          "array": false,
+          "delimiter": ",",
+          "nullable": false
+        },
+        {
+          "name": "mrch_catg_cd",
+          "type": "Decimal",
+          "array": false,
+          "delimiter": ",",
+          "nullable": false
+        },
+        {
+          "name": "mrch_nm",
+          "type": "String",
+          "array": false,
+          "delimiter": "\n",
+          "nullable": false
+        }
+      ]
+    }
+  }
+, {
+  "model": "api.schema",
+  "pk": 5,
+  "fields": {
+    "name":"cust_schema_poc",
+    "format": "DELIMITED",
+    "type" : "STRUCTURED",
+    "ebcdic": false,
+    "external_id": 2,
+    "fields": [
+      {
+          "name": "customer_id",
+          "type": "Decimal(20,0)",
+          "array": false,
+          "delimiter": ",",
+          "nullable": false
+        },
+        {
+          "name": "sor_id",
+          "type": "Integer",
+          "array": false,
+          "delimiter": ",",
+          "nullable": false
+        },
+        {
+          "name": "ent_cust_id",
+          "type": "Decimal(20,0)",
+          "array": false,
+          "delimiter": ",",
+          "nullable": false
+        },
+        {
+          "name": "last_nm",
+          "type": "String",
+          "array": false,
+          "delimiter": ",",
+          "nullable": false
+        },
+        {
+          "name": "first_nm",
+          "type": "String",
+          "array": false,
+          "delimiter": "\n",
+          "nullable": false
+        }
+      ]
+    }
+  }
+ , {
+  "model": "api.schema",
+  "pk": 6,
+  "fields": {
+    "name":"reformat_schema_poc",
+    "format": "DELIMITED",
+    "type" : "STRUCTURED",
+    "ebcdic": false,
+    "external_id": 3,
+    "fields": [
+      {
+          "name": "cust_id",
+          "type": "Decimal(20,5)",
+          "array": false,
+          "delimiter": "|",
+          "nullable": false
+        },
+        {
+          "name": "acct_id",
+          "type": "Decimal(22,0)",
+          "array": false,
+          "delimiter": "|",
+          "nullable": false
+        },
+        {
+          "name": "trxn_dt",
+          "type": "Date",
+          "array": false,
+          "delimiter": "|",
+          "date_format":"MM/DD/yy",
+          "nullable": false
+        },
+        {
+          "name": "trxn_postd_dt",
+          "type": "Date",
+          "array": false,
+          "delimiter": "|",
+          "date_format":"MM/DD/yy",
+          "nullable": false
+        },
+        {
+          "name": "trxn_seq_num",
+          "type": "Decimal(20,0)",
+          "array": false,
+          "delimiter": "|",
+          "nullable": false
+        },
+        {
+          "name": "tsys_trxn_cd",
+          "type": "Decimal",
+          "array": false,
+          "delimiter": "|",
+          "nullable": false
+        },
+        {
+          "name": "trxn_amt",
+          "type": "Decimal",
+          "array": false,
+          "delimiter": "|",
+          "nullable": false
+        },
+        {
+          "name": "trnx_desc",
+          "type": "String",
+          "array": false,
+          "delimiter": "|",
+          "nullable": false
+        },
+        {
+          "name": "mrch_catg_cd",
+          "type": "Decimal",
+          "array": false,
+          "delimiter": "|",
+          "nullable": false
+        },
+        {
+          "name": "mrch_nm",
+          "type": "String",
+          "array": false,
+          "delimiter": "\n",
+          "nullable": false
+        },
+        {
+          "name": "customer_id",
+          "type": "Decimal(20,0)",
+          "array": false,
+          "delimiter": "|",
+          "nullable": false
+        },
+        {
+          "name": "sor_id",
+          "type": "Integer",
+          "array": false,
+          "delimiter": "|",
+          "nullable": false
+        },
+        {
+          "name": "ent_cust_id",
+          "type": "Decimal(20,0)",
+          "array": false,
+          "delimiter": "|",
+          "nullable": false
+        },
+        {
+          "name": "last_nm",
+          "type": "String",
+          "array": false,
+          "delimiter": "|",
+          "nullable": false
+        },
+        {
+          "name": "first_nm",
+          "type": "String",
+          "array": false,
+          "delimiter": "|",
+          "nullable": false
+        },
+        {
+          "name": "sor_id_str",
+          "type": "String",
+          "array": false,
+          "delimiter": "\n",
+          "nullable": false
+        }
+      ]
+    }
+  },
+  {
+    "model": "api.schema",
+    "pk": 7,
+    "fields": {"name":"join_schema_poc",
+    "format": "DELIMITED",
+    "type" : "STRUCTURED",
+    "ebcdic": false,
+    "external_id": 4,
+    "fields": [
+      {
+          "name": "mrch_nm",
+          "type": "String",
+          "array": false,
+          "delimiter": "|",
+          "nullable": false
+        },
+        {
+          "name": "max_trxn",
+          "type": "Decimal",
+          "array": false,
+          "delimiter": "|",
+          "nullable": false
+        },
+        {
+          "name": "sum_trxn",
+          "type": "Decimal",
+          "array": false,
+          "delimiter": "|",
+          "nullable": false
+        }
+      ]
+    }
+  },
+  {
+    "model": "api.schema",
+    "pk": 8,
+    "fields": {
+    "name":"filter_schema_poc",
+    "format": "DELIMITED",
+    "type" : "STRUCTURED",
+    "ebcdic": false,
+    "external_id": 5,
+    "fields": [
+      {
+          "name": "customer_id",
+          "type": "Decimal(20,0)",
+          "array": false,
+          "delimiter": ",",
+          "nullable": false
+        },
+        {
+          "name": "sor_id",
+          "type": "Integer",
+          "array": false,
+          "delimiter": ",",
+          "nullable": false
+        },
+        {
+          "name": "ent_cust_id",
+          "type": "Decimal(20,0)",
+          "array": false,
+          "delimiter": ",",
+          "nullable": false
+        },
+        {
+          "name": "last_nm",
+          "type": "String",
+          "array": false,
+          "delimiter": ",",
+          "nullable": false
+        },
+        {
+          "name": "first_nm",
+          "type": "String",
+          "array": false,
+          "delimiter": "\n",
+          "nullable": false
+        },
+        {
+          "name": "sor_id_str",
+          "type": "String",
+          "array": false,
+          "delimiter": "\n",
+          "nullable": false
+        }
+      ]
+    }
+  }
+]
