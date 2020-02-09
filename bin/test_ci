@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Run "test_ci" entrypoint
+source ./bin/.bin-conf
+docker run --rm $DTW_BE_IMAGE test_ci

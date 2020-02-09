@@ -1,5 +1,0 @@
-#!/bin/bash
-
-# Run "test" entrypoint. Same can be achieved with "bin/run test" but creating this for ease
-source ./bin/.bin-conf
-docker run --rm $DTW_BE_IMAGE test
