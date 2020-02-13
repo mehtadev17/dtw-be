@@ -13,17 +13,19 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: Add +x to bin files
+      run: |
+        chmod +x ./bin/build
+        chmod +x ./bin/test_ci
+        chmod +x ./bin/version
     - name: Build Image
       run: |
-       chmod +x ./bin/build
        bin/build
     
     - name: Run Tests
       run: |
-       chmod +x ./bin/test_ci
        bin/test_ci
        
     - name: Print Version
       run: |
-       chmod +x ./bin/version
        bin/version
