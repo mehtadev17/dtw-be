@@ -6,16 +6,18 @@ on:
     - master
 
 jobs:
+
   build:
+
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v
+    - uses: actions/checkout@v2
     - name: Add +x to bin files
       run: |
         chmod +x ./bin/build
         chmod +x ./bin/test_ci
         chmod +x ./bin/version
-        
     - name: Build Image
       run: |
        bin/build
