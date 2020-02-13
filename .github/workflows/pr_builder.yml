@@ -10,7 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v
-      
     - name: Add +x to bin files
       run: |
         chmod +x ./bin/build
