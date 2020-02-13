@@ -20,7 +20,7 @@ jobs:
     
     - name: bin/test_ci
       run: |
-       chmod +x ./bin/build
+       chmod +x ./bin/test_ci
        bin/test_ci
       
     - name: bin/build
