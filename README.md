@@ -22,8 +22,8 @@ DEBUG=False # enable django debug
 
 # Shell Access
 
-`./bin/dev`
+`./bin/dev sh`
 
-# Run
+# Run Django App
 
 `./bin/run`
