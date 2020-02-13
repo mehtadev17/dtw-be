@@ -52,16 +52,16 @@
   "model": "api.component",
   "pk": 7,
   "fields": {
-    "name": "SDPReader",
-    "description": "File Write",
+    "name": "StreamReader",
+    "description": "Consume from a Stream",
     "type": "Source"
   }
 }, {
   "model": "api.component",
   "pk": 8,
   "fields": {
-    "name": "SDPWriter",
-    "description": "File Write",
+    "name": "StreamWriter",
+    "description": "Produce to a Stream",
     "type": "Sink"
   }
 }
