@@ -18,10 +18,8 @@ jobs:
        chmod +x ./bin/version
        bin/version
     
-#     - uses: actions/checkout@v2
-#     - name: bin/test_ci
-#       run: bin/test_ci
+    - name: bin/test_ci
+      run: bin/test_ci
       
-#     - uses: actions/checkout@v2
-#     - name: bin/build
-#       run: bin/build
+    - name: bin/build
+      run: bin/build
