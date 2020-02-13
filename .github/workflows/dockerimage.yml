@@ -19,7 +19,11 @@ jobs:
        bin/version
     
     - name: bin/test_ci
-      run: bin/test_ci
+      run: |
+       chmod +x ./bin/build
+       bin/test_ci
       
     - name: bin/build
-      run: bin/build
+      run: |
+       chmod +x ./bin/build
+       bin/build
