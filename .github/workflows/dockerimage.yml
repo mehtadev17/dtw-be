@@ -13,8 +13,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Build the Docker image
-      run: |
-       - bin/version
-       - bin/test_ci
-       - bin/build
+    - name: bin/version
+      run: bin/version
+    
+    - uses: actions/checkout@v2
+    - name: bin/test_ci
+      run: bin/test_ci
+      
+    - uses: actions/checkout@v2
+    - name: bin/build
+      run: bin/build
